@@ -64,5 +64,14 @@ if (!class_exists("AffiligateLib")) {
             $data = implode(",", $data_arr);
             return $data;
         }
+
+        function javascript_escape($str) {
+            $new_str = '';
+            $str_len = strlen($str);
+            for($i = 0; $i < $str_len; $i++) {
+                $new_str .= '\\x' . dechex(ord(substr($str, $i, 1)));
+            }
+            return $new_str;
+        }
     }
 }

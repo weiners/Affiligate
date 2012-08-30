@@ -84,9 +84,13 @@ class Wix
     }
 
     // returns your decoded instance - can return null
-    public function getDecodedInstance()
+    public function getDecodedInstance($getParams=true)
     {
-        $instance = isset($_GET['instance']) ? $_GET['instance'] : null;
+        if ($getParams==true) {
+            $instance = isset($_GET['instance']) ? $_GET['instance'] : null;
+        } else {
+            $instance = isset($_POST['instance']) ? $_POST['instance'] : null;
+        }
 
         if ($instance === null) {
             error_log("Instance not found!");

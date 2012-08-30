@@ -38,7 +38,6 @@ if (!class_exists("AmazonLayer")) {
         }
 
         function getProduct($asin) {
-
             $timeStamp = gmdate("Y-m-d\TH:i:s\Z");
             $operation = "ItemLookup";
             $responseGroup = "Images,ItemAttributes,Offers,Reviews";
@@ -54,7 +53,6 @@ if (!class_exists("AmazonLayer")) {
                     . "&Timestamp=" . $timeStamp;
             $url = $this->_baseUrl . "?" . $query;
             $url = $this->_signUrl($url);
-
             $xml =  $this->_sendRequest($url);
             $product = $this->_parseProduct($xml->Items->Item);
             return $product;
@@ -66,6 +64,7 @@ if (!class_exists("AmazonLayer")) {
             $product["title"] = str_replace(array('[', ']'), array('(', ')'), (string)$xml->ItemAttributes->Title);
             $product["price"] = (string)$xml->ItemAttributes->ListPrice->FormattedPrice;
             $product["url"] = (string)$xml->DetailPageURL;
+            $product["asin"] = (string)$xml->ASIN;
             $product["images"] = array(
                 "small" => array(
                     "url" => (string)$xml->SmallImage->URL,

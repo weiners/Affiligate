@@ -12,6 +12,14 @@ try
     $wix = new Wix();
     $instance = $wix->getDecodedInstance();
     $componentId = $_GET['compId'];
+    $asin = $_GET['asin'];
+    $layoutName = $_GET['layoutName'];
+    $layoutSettings = $_GET['layoutSettings'];
+    // Direct render mode
+    if (isset($asin) && isset($layoutName) && isset($layoutSettings)) {
+        renderWidget($asin, $layoutName, $layoutSettings);
+    } else
+    // Widget from DB render mode
     if (isset($componentId) && isset($instance) && isset($instance["instanceId"])) {
         $sql = mysql_connect("localhost", "root", "affiligate");
         if ($sql) {
@@ -25,21 +33,9 @@ try
                         // get default widget
                         $query = sprintf("SELECT * FROM widgets WHERE component_id='%s'", "default");
                         $result = mysql_query($query);
-                        $row = mysql_fetch_array($result, true);
-                    } else {
-                        $row = mysql_fetch_array($result, true);
                     }
-                    $product = $amazon->getProduct((string)$row["amazon_asin"]);
-                    $content = json_decode($row["layout_settings"], true);
-                    switch ($content["size"]) {
-                        case "Small":
-                            $content["size"] = "_SL110_";
-                            break;
-                        case "Large":
-                            $content["size"] = "_SL160_";
-                            break;
-                    }
-                    include('Container.phtml');
+                    $row = mysql_fetch_array($result, true);
+                    renderWidget($row["amazon_asin"], $row["layout_name"], $row["layout_settings"]);
                     mysql_close($sql);
 
                 } else {
@@ -58,4 +54,22 @@ try
 
 catch(Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
+
+function renderWidget($asin, $layoutName, $layoutSettings) {
+    global $amazon;
+    $product = $amazon->getProduct((string)$asin);
+
+
+    $content = json_decode($layoutSettings, true);
+    switch ($content["size"]) {
+        case "Small":
+            $content["amazonSize"] = "_SL110_";
+            break;
+        case "Large":
+            $content["amazonSize"] = "_SL160_";
+            break;
+    }
+    $content["size"] = strtolower($content["size"]);
+    include('Container.phtml');
 }
