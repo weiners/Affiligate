@@ -34,10 +34,10 @@ body {
     float: left;
     padding-right: 26px;
     
-     transition: all 0.5s;
-	-moz-transition: all 0.5s; /* Firefox 4 */
-	-webkit-transition: all 0.5s; /* Safari and Chrome */
-	-o-transition: all 0.5s; /* Opera */
+     
+	 /* Firefox 4 */
+	 /* Safari and Chrome */
+	 /* Opera */
 }
 
 .minified #logo40 {
@@ -58,7 +58,6 @@ body {
     float: left;
 	
     margin-left: 20px;
-    position: relative;
     width: 400px;
     margin-top: -16px;
 }
@@ -67,6 +66,11 @@ body {
     margin-bottom: 9px;
 	
     float: left;
+}
+
+.minified #main-title h3 {
+    bottom:4px;
+    position:relative;
 }
 
 #main-title p {
@@ -85,6 +89,8 @@ section.section {
 section#header {
     overflow: hidden;
     
+    -webkit-transition: all 0.5s linear;
+    height: 115px;
 }
 
 section.section:first-child {
@@ -100,7 +106,7 @@ section.section:last-child {
     float: right;
     
     position: absolute;
-    right: -50px;
+    right: 13px;
     top: 19px;
 }
 
@@ -218,6 +224,9 @@ section.section:last-child {
 ;
     height: 160px;
     overflow: scroll;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #search-result-section #product-list {
@@ -284,34 +293,56 @@ section.section:last-child {
     list-style-type: none;
 	
     margin: 0;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: perspective(531px);
+    -webkit-transform-origin: left top;
 }
 
 #search-result-section ul#list li {
     border-bottom: 1px solid #BBBBBB;
     
-    height: 80px;
+    height: 90px;
     overflow: hidden;
+    -webkit-transform-origin: left top;
+    padding: 0 20px;
+    opacity: 1;
+    
+    position: relative;
+    width: 94%;
+}
+
+#search-result-section ul#list li.li-hidden {
+    -webkit-transform: rotateX(30deg) rotateY(25deg);
+    opacity: 0;
 }
 
 #search-result-section ul#list li img {
     float: left;
     
     position: absolute;
-    left: 0;
+    left: top;
+    top: 6px;
 }
 
 #search-result-section ul#list li .text-data {
     float: left;   
     width: 343px;
     position: absolute;
-    left: 97px;
+    left: 117px;
+    top: 7px;
 }
 
 #search-result-section ul#list li .text-data .title {
+    text-overflow: ellipsis;
    
+    height: 40px;
+    overflow: hidden;
+    margin-top: 6px;
+    margin-bottom: 5px;
 }
 
 #search-result-section ul#list li .text-data .price{
+    color: #900;
   
 }
 
@@ -319,7 +350,8 @@ section.section:last-child {
     float: right;
     
     position: relative;
-    top: 13px;
+    top: 32px;
+    width: 80px;
 }
 
 /* Product settings */
@@ -449,6 +481,12 @@ div#user-settings {
 }
 input#settings-amazon-affiliate-id {
     height: auto;
+    left: 125px;
+    position: relative;
+}
+
+#user-settings-submit {
+     float:right;   
 }
 
 #product-settings-secion h4.image-size-class,
@@ -468,8 +506,17 @@ input#settings-amazon-affiliate-id {
     top: 10px;
 }
 
-#product-settings-secion #image-size{
-    width: 265px; 
+#product-settings-secion #image-size{ 
     float: right;
     margin-top: 44px;
 }
+
+/* Alert Feedback */
+
+.alert {
+    position: fixed;
+    top: 0;
+    display: none;
+    left: 220px;
+}
+
