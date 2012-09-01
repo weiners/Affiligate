@@ -9,22 +9,22 @@
     <?php include_once("lib/analytics.phtml")?>
     <script type="text/javascript">
         window.onload = function() {
+
             // Listing to postMessage to initiate a preview action
             window.addEventListener("message", refreshWidget, false);
-            // Redirects itself to the server to preview the changed setting
-            function refreshWidget(event) {
-                var compId = getParameterByName("compId");
-                if ( event.data.secret === "AffiliGate" ) {
-                    if (compId === event.data.compId) {
-                        var query_sting = 'asin=' + event.data.asin;
-                        query_sting += '&layoutName=' + event.data.layoutName;
-                        query_sting += '&layoutSettings=' + JSON.stringify(event.data.layoutSettings);
-                        window.location = 'widget.php?' + query_sting;
-                    }
+        };
+        // Upon postMessage - widget redirects itself to the server to preview the changed settings
+        function refreshWidget(event) {
+            var compId = getParameterByName("compId");
+            if ( event.data.secret === "AffiliGate" ) {
+                if (compId === event.data.compId) {
+                    var query_sting = 'asin=' + event.data.asin;
+                    query_sting += '&layoutName=' + event.data.layoutName;
+                    query_sting += '&layoutSettings=' + JSON.stringify(event.data.layoutSettings);
+                    window.location = 'widget.php?' + query_sting;
                 }
             }
-        };
-
+        }
 
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");

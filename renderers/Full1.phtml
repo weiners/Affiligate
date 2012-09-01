@@ -6,6 +6,7 @@
         body {
             font-family: verdana, sans-serif;
             font-size: 12px;
+            background-color: #FFFFFF;
         }
         a:visited {
             color: #0000FF;
@@ -33,14 +34,14 @@
     </style>
 </head>
 <body>
-<div class="column left">
-    <a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>">
-        <img src="<?php echo $product["images"][$content["size"]]["url"]; ?>", width="<?php echo $product["images"][$content["size"]]["width"]; ?>",height="<?php echo $product["images"][$content["size"]]["height"]; ?>" />
+    <div class="column left">
+        <a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>">
+            <img src="<?php echo $product["images"][$content["size"]]["url"]; ?>", width="<?php echo $product["images"][$content["size"]]["width"]; ?>",height="<?php echo $product["images"][$content["size"]]["height"]; ?>" />
 		</a>
 	</div>
 	<div class="column right">
 		<p class="title">
-			<a href="<?php echo $product["url"];?>" target="_<?php echo $content["linkTarget"];?>"><?php echo $product["title"];?></a>
+			<a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>"><?php echo $product["title"];?></a>
 		</p>
 		<p class="price"><?php echo $product["price"];?></p>
 		<a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>"><img src="assets/img/amazon_buy_1.gif" /></a>
