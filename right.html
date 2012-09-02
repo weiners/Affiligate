@@ -1,0 +1,42 @@
+<html>
+<head>
+	<script type="text/javascript">
+		window.onload = function() {
+			console.log("Turning pink");
+			document.getElementsByTagName("body")[0].style.backgroundColor = 'rgb(255, 0, 255)';
+
+
+function getMSG(event) {
+			console.log("Right Says: Got Message: ", event);
+		}
+
+		
+			window.addEventListener("message", gotMSG, false);
+
+		}
+
+		function getMSG(event) {
+			console.log("Right Says: Got Message: ", event);
+		}
+
+		function changeMyColor() {
+			if ( document.getElementsByTagName("body")[0].style.backgroundColor === 'rgb(255, 0, 255)' ) {
+				console.log("Change my color to blueish");
+				document.getElementsByTagName("body")[0].style.backgroundColor = '#00FFFF';
+			}
+			else {
+				console.log("Change my color to pink");
+				document.getElementsByTagName("body")[0].style.backgroundColor = '#FF00FF'
+			}
+		}
+		function changeLeftsColor() {
+
+		}
+	</script>
+</head>
+<body>
+	<h1>I'm right</h1>
+	<button onclick="changeMyColor()">Change My Color</button><br /><br />
+	<button onclick="changeLeftsColor()">Change Lefts Color</button>
+</body>
+</html>

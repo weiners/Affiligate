@@ -8,8 +8,8 @@
             font-size: 12px;
             background-color: #FFFFFF;
         }
-        a:visited {
-            color: #0000FF;
+        a, a:visited {
+            color: #2361A1;
         }
         .column {
             display: inline-block;
@@ -36,7 +36,7 @@
 <body>
     <div class="column left">
         <a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>">
-            <img src="<?php echo $product["images"][$content["size"]]["url"]; ?>", width="<?php echo $product["images"][$content["size"]]["width"]; ?>",height="<?php echo $product["images"][$content["size"]]["height"]; ?>" />
+            <img src="<?php echo $product["images"][$content["size"]]["url"]; ?>", width="<?php echo $product["images"][$content["size"]]["width"]; ?>",height="<?php echo $product["images"][$content["size"]]["height"]; ?>", border="0" />
 		</a>
 	</div>
 	<div class="column right">
@@ -44,7 +44,7 @@
 			<a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>"><?php echo $product["title"];?></a>
 		</p>
 		<p class="price"><?php echo $product["price"];?></p>
-		<a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>"><img src="assets/img/amazon_buy_1.gif" /></a>
+		<a href="<?php echo $product["url"];?>" target="<?php echo $content["linkTarget"];?>"><img src="assets/img/amazon_buy_1.gif", border="0" /></a>
 	</div>
 
 </body>

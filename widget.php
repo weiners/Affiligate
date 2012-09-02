@@ -58,6 +58,7 @@ catch(Exception $e) {
 
 function renderWidget($asin, $layoutName, $layoutSettings) {
     global $amazon;
+    global $associateTag;
     $product = $amazon->getProduct((string)$asin);
 
 

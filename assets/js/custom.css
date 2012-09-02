@@ -6,10 +6,10 @@ body {
 }
 
 #container {
-     background-color: #EFEFEF;
+     background-color: #FFFFFF;
      width:630px;
      height: 565px;
-     overflow-x: hidden;
+     overflow: scroll;
      /*margin: 50px auto 50px;*/  
 }
 
@@ -24,8 +24,7 @@ body {
 
 #main {
     padding: 10px 10px;
-    background: #EFEFEF;
-    position: relative;
+    background: #efefef;
 }
 
 #logo40 {
@@ -48,9 +47,7 @@ body {
 	
     background-size: 30px 30px;
     position: relative;
-    bottom: 12px;
-    left: -8px;
-    padding-right: 0;
+    bottom: 5px;
 }
 
 .lineBreak {
@@ -65,11 +62,6 @@ body {
     margin-top: -16px;
 }
 
-.minified #main-title {
-    margin-left: 12px;
-    
-}
-
 #main-title h3 {
     margin-bottom: 9px;
 	
@@ -77,9 +69,8 @@ body {
 }
 
 .minified #main-title h3 {
-    bottom: 10px;
+    bottom:4px;
     position:relative;
-    font-size: 1.4em;
 }
 
 #main-title p {
@@ -95,18 +86,10 @@ section.section {
     position: relative;
 }
 
-#search-section {
-     height:128px;   
-     padding: 0;
-}
-
-#search-section-wrapper {
-     padding: 20px;   
-}
-
 section#header {
     overflow: hidden;
     
+    -webkit-transition: all 0.5s linear;
     height: 115px;
 }
 
@@ -125,10 +108,6 @@ section.section:last-child {
     position: absolute;
     right: 13px;
     top: 19px;
-}
-
-#header.minified nav {
-    top: 14px;
 }
 
 #header nav a {
@@ -154,12 +133,11 @@ section.section:last-child {
 /* Search section */
 
 #search-query {
-    padding: 0 16px;
+    padding: 18px 16px;
     
     border-radius: 10px 0 0 10px;
     width: 260px;
     border-right: none;
-    height: 38px;
 }
 
 .btn-group > .btn-large + .dropdown-toggle {
@@ -196,8 +174,8 @@ section.section:last-child {
 }
 
 #search-query-list {
-	max-height: 240px;
-	overflow-y: scroll;
+	max-height: 300px;
+	overflow: scroll;
 }
 
 #search-section .dropdown-toggle {
@@ -239,48 +217,21 @@ section.section:last-child {
 	
     position: relative;
     
-	 /* Firefox 4 */
-	 /* Safari and Chrome */
-	 /* Opera */
-
-    height: 219px;
+    transition: height 0.5s;
+	-moz-transition: height 0.5s; /* Firefox 4 */
+	-webkit-transition: height 0.5s; /* Safari and Chrome */
+	-o-transition: height 0.5s; /* Opera */
+;
+    height: 160px;
+    overflow: scroll;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #search-result-section #product-list {
     position: relative;
-}
-
-#no-product-image {
-    background: url('../img/sad_face.png') no-repeat;
 	
-    height: 117px;
-    width: 120px;
-    margin: 59px auto 51px;
-}
-
-#no-product-text {
-    color: #666666;
-	
-}
-
-
-#waiting-for-user-text {
-    width: 280px;
-	
-    float: left;
-    margin-top: 100px;
-    -webkit-transform: rotateZ(-10deg);
-    font-size: 1.3em;
-}
-#waiting-for-user-arrow {
-    background: url('../img/arrow.png') no-repeat;
-	
-    height: 138px;
-    width: 100px;
-    margin-left: 90px;
-    float: left;
 }
 
 #search-result-section .ajax-loader-wrapper {
@@ -335,7 +286,7 @@ section.section:last-child {
 #search-result-section #product-list #waiting-for-user {
     position: relative;
 	
-    top: 20;
+    top: 70;
 }
 
 #search-result-section ul#list {
@@ -345,11 +296,6 @@ section.section:last-child {
     -webkit-transform-style: preserve-3d;
     -webkit-transform: perspective(531px);
     -webkit-transform-origin: left top;
-}
-
-#search-result-section.single-product {
-    overflow: hidden !important;
-
 }
 
 #search-result-section ul#list li {
@@ -365,14 +311,6 @@ section.section:last-child {
     width: 94%;
 }
 
-#search-result-section.single-product ul#list li {
-    border: none;
-}
-
-#search-result-section ul#list li:last-child {
- border-bottom: none;   
-}
-
 #search-result-section ul#list li.li-hidden {
     -webkit-transform: rotateX(30deg) rotateY(25deg);
     opacity: 0;
@@ -382,13 +320,8 @@ section.section:last-child {
     float: left;
     
     position: absolute;
-    right: 516px;
-    top: 16px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    max-height: 56px;
-    border: 1px solid #ccc;
-    width: auto;
-    max-width: 78px;
+    left: top;
+    top: 6px;
 }
 
 #search-result-section ul#list li .text-data {
@@ -426,7 +359,6 @@ section.section:last-child {
 #product-settings-secion {
     display: none;
 	
-    height: 0;
 }
 
 #product-settings-secion header{
@@ -445,77 +377,19 @@ section.section:last-child {
 #product-settings-secion header #update-product-attributes{
     float: right;
 	
-    display: inline-block;
-	padding: 4px 14px;
-	margin-bottom: 0;
-	font-size: 14px;
-	line-height: 20px;
-	color: #333;
-	text-align: center;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	
-	cursor: pointer;
-	background-color: whiteSmoke;
-	background-image: -webkit-gradient(linear,0 0,0 100%,from(white),to(#E6E6E6));
-	background-image: -webkit-linear-gradient(top,white,#E6E6E6);
-	background-image: -o-linear-gradient(top,white,#E6E6E6);
-	background-image: linear-gradient(to bottom,white,#E6E6E6);
-	background-image: -moz-linear-gradient(top,white,#E6E6E6);
-	background-repeat: repeat-x;
-	border: 1px solid #BBB;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	border-color: #E6E6E6 #E6E6E6 #BFBFBF;
-	border-bottom-color: #A2A2A2;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
-	filter: progid:dximagetransform.microsoft.gradient(enabled=false);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
-	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05);
-	
-	color: white;
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-background-color: #006DCC;
-background-image: -webkit-gradient(linear,0 0,0 100%,from(#08C),to(#04C));
-background-image: -webkit-linear-gradient(top,#08C,#04C);
-background-image: -o-linear-gradient(top,#08C,#04C);
-background-image: linear-gradient(to bottom,#08C,#04C);
-background-image: -moz-linear-gradient(top,#08C,#04C);
-background-repeat: repeat-x;
-border-color: #04C #04C #002A80;
-border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-
-#product-settings-secion header #update-product-attributes:hover{
-	color: #333;
-	text-decoration: none;
-	background-color: #E6E6E6;
-	background-position: 0 -15px;
-	-webkit-transition: background-position .1s linear;
-	-moz-transition: background-position .1s linear;
-	-o-transition: background-position .1s linear;
-	transition: background-position .1s linear;
-	color: white;
-background-color: #04C;
+    position: relative;
+    top: -2px;
 }
 
 #product-settings-secion #skin-type{
-    margin: 0 auto 0;
+    margin: 0 auto;
 	
-    border-bottom: 1px solid #bbb;
-    padding-bottom: 14px;
 }
 
 #product-settings-secion #skin-type a{
     float: left;	
     text-decoration: none;
-    margin-left: 72px;
-}
-
-#product-settings-secion #skin-type a:first-child{
-    margin-left: 0;
+    margin-right: 30px;
 }
 
 #product-settings-secion #skin-type a:hover{
@@ -594,7 +468,31 @@ background-color: #04C;
     background-position: -280px 0;
 	
 }
+#user-settings-submit {
+     float:right;   
+}
 
+#product-settings-secion h4.image-size-class,
+#product-settings-secion h4.product-text-class {
+    width: 200px;
+    margin-top: 51px;
+    float: left;
+    font-weight: normal;
+}
+
+#product-settings-secion #product-text {
+    width: 365px;
+    
+    float: right;
+    margin-top: 44px;
+    position: relative;
+    top: 10px;
+}
+
+#product-settings-secion #image-size{ 
+    float: right;
+    margin-top: 44px;
+}
 
 /* User Settings */
 
@@ -607,118 +505,18 @@ div#user-settings {
 }
 input#settings-amazon-affiliate-id {
     height: auto;
-    left: 125px;
-    position: relative;
+}
+button#user-settings-submit {
+    margin-left: 10px;
 }
 
-.minified input#settings-amazon-affiliate-id {
-    left: 41px;
-}
-
-#user-settings-submit {
-     float:right;   
-}
-
-#product-settings-secion h4.image-size-class {
-    width: 200px;
-    margin-top: 21px;
-    float: left;
-    font-weight: normal;
-}
-
-#product-settings-secion h4.product-text-class {
-    width: 200px;
-    margin-top: 0;
-    float: left;
-    font-weight: normal;
-}
-
-#product-settings-secion #product-text {
-    width: 365px;
-    
-    float: right;
-    margin-top: 0;
-    position: relative;
-    top: 3px;
-}
-
-#product-settings-secion #image-size{ 
-    float: right;
-    margin-top: 22px;
-}
 
 /* Alert Feedback */
 
 .alert {
-    position: absolute;
+    position: fixed;
     top: 0;
     display: none;
-    left: 0;
-    z-index: 9999;
-    right: 0;
-    margin: 10px 10px 0;
-    font-size: 1.1em;
-    line-height: 1.8em;
-    padding-bottom: 11px;
-    text-align: center;
+    left: 220px;
 }
 
-/* Bootstrap fix*/
-
-#image-size {
-min-height: 40px;
-padding-right: 0;
-padding-left: 0;
-background-color: #FAFAFA;
-background-image: -moz-linear-gradient(top,white,#F2F2F2);
-background-image: -webkit-gradient(linear,0 0,0 100%,from(white),to(#F2F2F2));
-background-image: -webkit-linear-gradient(top,white,#F2F2F2);
-background-image: -o-linear-gradient(top,white,#F2F2F2);
-background-image: linear-gradient(to bottom,white,#F2F2F2);
-background-repeat: repeat-x;
-border: 1px solid #D4D4D4;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
-filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffffff',endColorstr='#fff2f2f2',GradientType=0);
--webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
--moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-}
-
-#image-size .nav > li > a:focus, #image-size .nav > li > a:hover {
-color: #333;
-text-decoration: none;
-background-color: transparent;
-}
-#image-size .nav > li > a {
-float: none;
-padding: 10px 15px 10px;
-color: #555;
-text-decoration: none;
-text-shadow: 0 1px 0 white;
-}
-.nav > li > a:hover {
-text-decoration: none;
-background-color: #EEE;
-}
-.nav > li > a {
-display: block;
-}
-
-#image-size .nav > li {
-float: left;
-}
-
-#image-size .nav > li.active > a { 
-color: #555;
-text-decoration: none;
-background-color: #E5E5E5;
--webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
--moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
-}
-
-.textarea-error {
-	border: 1px solid #ff0000;
-}

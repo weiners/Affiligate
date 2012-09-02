@@ -1,0 +1,44 @@
+<html>
+<head>
+	<script type="text/javascript">
+		window.onload = function() {
+			console.log("Turning yellow: ", window.name);
+			document.getElementsByTagName("body")[0].style.backgroundColor = '#FFFF00';
+
+			window.addEventListener("message", gotMSG, false);
+
+		}
+
+		function getMSG(event) {
+			console.log("Got Message: ", event);
+		}
+
+		function changeMyColor2() {
+			if ( document.getElementsByTagName("body")[0].style.backgroundColor === 'rgb(255, 255, 0)' ) {
+				console.log("Change my color to orange");
+				document.getElementsByTagName("body")[0].style.backgroundColor = '#FF7D00';
+			}
+			else {
+				console.log("Change my color to yellow");
+				document.getElementsByTagName("body")[0].style.backgroundColor = '#FFFF00'
+			}
+		}
+		function changeRightsColor() {
+			console.log("Right has ", parent.frames.length, " frames");
+			for(var i = 0; i < parent.frames.length; i++) {
+				console.log("Changing color for frame: ", i, " with name ", parent.frames[i].name);
+				if( parent.frames[i].name === 'iright') {
+					parent.frames[i].changeMyColor();
+				}
+
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>I'm left</h1>
+	<button onclick="changeMyColor2()">Change My Color</button><br /><br />
+	<button onclick="changeRightsColor()">Change Rights Color</button>
+</body>
+</html>
